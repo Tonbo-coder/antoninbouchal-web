@@ -155,15 +155,15 @@ export default function ExcelBezChaosuDetail() {
               </div>
             </div>
 
-            {/* Photo – same pattern as /skoleni, sitting on the divider */}
+            {/* Excel icon – sitting on the divider */}
             <div className="absolute bottom-0 right-0 hidden sm:block pointer-events-none select-none">
               <Image
-                src="/images/antonin-bouchal.webp"
-                alt="Antonín Bouchal"
+                src="/images/skoleni_MS_Excel_antonin_bouchal.webp"
+                alt=""
                 width={220}
-                height={233}
+                height={220}
                 className="object-contain object-bottom"
-                style={{ height: "clamp(160px, 22vw, 260px)", width: "auto" }}
+                style={{ height: "clamp(140px, 18vw, 220px)", width: "auto" }}
               />
             </div>
           </div>
