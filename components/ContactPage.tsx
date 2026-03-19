@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react";
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const ref = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLElement>(null);
@@ -118,7 +120,24 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="flex flex-col gap-6">
+                <form onSubmit={async (e) => {
+                e.preventDefault();
+                setSending(true);
+                setError("");
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(form),
+                  });
+                  if (!res.ok) throw new Error();
+                  setSent(true);
+                } catch {
+                  setError("Odeslání selhalo. Zkuste to prosím znovu nebo napište přímo na jsem@antoninbouchal.cz");
+                } finally {
+                  setSending(false);
+                }
+              }} className="flex flex-col gap-6">
 
                   {/* Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -149,12 +168,18 @@ export default function ContactPage() {
                       className={`${inputCls} resize-none`} />
                   </div>
 
-                  <button type="submit"
-                    className="flex items-center justify-center gap-2 px-8 py-4 bg-[var(--orange)] text-white font-bold text-[15px] rounded-xl hover:bg-[var(--orange-dark)] transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-0.5 active:translate-y-0">
-                    Odeslat zprávu
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                    </svg>
+                  {error && (
+                    <p className="text-[13px] text-red-500 bg-red-50 border border-red-100 rounded-xl px-4 py-3">{error}</p>
+                  )}
+
+                  <button type="submit" disabled={sending}
+                    className="flex items-center justify-center gap-2 px-8 py-4 bg-[var(--orange)] text-white font-bold text-[15px] rounded-xl hover:bg-[var(--orange-dark)] transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                    {sending ? "Odesílám…" : "Odeslat zprávu"}
+                    {!sending && (
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                      </svg>
+                    )}
                   </button>
 
                   <p className="text-[12px] text-gray-300 text-center">
