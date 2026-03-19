@@ -55,6 +55,7 @@ export default function Page() {
           subtext="Školení zaměřené na praktické využití AI v každodenní práci. Žádné buzzwordy, žádná teorie – jen to, co reálně funguje."
           heroImage="/images/skoleni_AI_antonin_bouchal.webp"
           sectionImage="/images/skoleni_AI_antonin_bouchal.webp"
+          roundedImage
           targetAudience={[
             { label: "Manažeři a podnikatelé", sub: "kteří chtějí pracovat efektivněji" },
             { label: "Marketéři a copywriteři", sub: "kteří chtějí AI jako pomocníka" },

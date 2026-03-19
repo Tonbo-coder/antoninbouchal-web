@@ -55,6 +55,7 @@ export default function Page() {
           subtext="Kurz pro každého, kdo chce pochopit, jak AI mění tvorbu webů – a chce to sám vyzkoušet. Bez nutnosti znát programování."
           heroImage="/images/skoleni_AI_antonin_bouchal.webp"
           sectionImage="/images/skoleni_AI_antonin_bouchal.webp"
+          roundedImage
           targetAudience={[
             { label: "Podnikatelé", sub: "kteří chtějí vlastní web bez agentury" },
             { label: "Marketéři", sub: "kteří chtějí rozumět webovému vývoji" },

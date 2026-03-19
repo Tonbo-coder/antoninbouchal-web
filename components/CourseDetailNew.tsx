@@ -14,6 +14,7 @@ export interface CourseDetailNewProps {
   targetAudience: { label: string; sub: string }[];
   heroImage: string;
   sectionImage: string;
+  roundedImage?: boolean;
 }
 
 const formOptions = ["Online", "Osobně", "Dle dohody"];
@@ -27,6 +28,7 @@ export default function CourseDetailNew({
   targetAudience,
   heroImage,
   sectionImage,
+  roundedImage = false,
 }: CourseDetailNewProps) {
   const [sent, setSent] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -140,7 +142,7 @@ export default function CourseDetailNew({
                 alt=""
                 width={220}
                 height={220}
-                className="object-contain object-bottom"
+                className={`object-contain object-bottom${roundedImage ? " rounded-2xl" : ""}`}
                 style={{ height: "clamp(140px, 18vw, 220px)", width: "auto" }}
               />
             </div>
@@ -178,7 +180,7 @@ export default function CourseDetailNew({
                   alt=""
                   width={100}
                   height={100}
-                  className="object-contain opacity-80"
+                  className={`object-contain opacity-80${roundedImage ? " rounded-xl" : ""}`}
                 />
               </div>
             </div>
