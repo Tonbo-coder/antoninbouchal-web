@@ -252,7 +252,7 @@ export default function ExcelBezChaosuDetail() {
       </SectionWrapper>
 
       {/* ── OBJEDNÁVKOVÝ FORMULÁŘ ── */}
-      <section ref={formRef} id="objednavka" className="py-20 md:py-28 bg-[#f9fafb]">
+      <section ref={formRef} id="objednavka" className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-8 md:gap-10 lg:gap-20">
             <div className="reveal-left flex md:flex-col md:items-start items-center gap-2 md:pt-1">
