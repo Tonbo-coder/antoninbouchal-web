@@ -1,10 +1,17 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const FROM = "Antonín Bouchal <noreply@antoninbouchal.cz>";
 const TO_ANTONIN = "jsem@antoninbouchal.cz";
+
+function createTransport() {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+  });
+}
 
 export async function POST(req: Request) {
   try {
@@ -14,11 +21,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Chybí povinné pole." }, { status: 400 });
     }
 
+    const transporter = createTransport();
+
     // 1) Notifikace pro Antonína – Reply-To = email klienta
-    await resend.emails.send({
-      from: FROM,
+    await transporter.sendMail({
+      from: `"Web – kontaktní formulář" <${process.env.GMAIL_USER}>`,
       to: TO_ANTONIN,
-      replyTo: email,
+      replyTo: `"${name}" <${email}>`,
       subject: `Nová zpráva od ${name}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
@@ -34,15 +43,15 @@ export async function POST(req: Request) {
             <p style="color:#6b7280;font-size:13px;margin:0 0 8px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em">Zpráva</p>
             <p style="white-space:pre-wrap;line-height:1.7;margin:0">${message}</p>
             <hr style="margin:24px 0;border:none;border-top:1px solid #f3f4f6">
-            <p style="color:#9ca3af;font-size:12px;margin:0">Kliknutím na Odpovědět pošlete zprávu přímo na <strong>${email}</strong></p>
+            <p style="color:#9ca3af;font-size:12px;margin:0">Kliknutím na Odpovědět odepíšete přímo na <strong>${email}</strong></p>
           </div>
         </div>
       `,
     });
 
     // 2) Potvrzení pro klienta
-    await resend.emails.send({
-      from: FROM,
+    await transporter.sendMail({
+      from: `"Antonín Bouchal" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: "Děkuji za vaši zprávu",
       html: `
@@ -54,7 +63,7 @@ export async function POST(req: Request) {
             <p style="line-height:1.7;margin:0 0 24px">Pokud potřebujete cokoliv urgentního, zavolejte mi na <a href="tel:+420736729646" style="color:#ec430f;font-weight:600">+420&nbsp;736&nbsp;729&nbsp;646</a>.</p>
             <p style="margin:0">S pozdravem,<br><strong>Antonín Bouchal</strong></p>
             <hr style="margin:24px 0;border:none;border-top:1px solid #f3f4f6">
-            <p style="color:#9ca3af;font-size:12px;margin:0">Tato zpráva byla vygenerována automaticky z formuláře na <a href="https://www.antoninbouchal.cz" style="color:#9ca3af">antoninbouchal.cz</a></p>
+            <p style="color:#9ca3af;font-size:12px;margin:0">Automatická zpráva z formuláře na <a href="https://www.antoninbouchal.cz" style="color:#9ca3af">antoninbouchal.cz</a></p>
           </div>
         </div>
       `,
