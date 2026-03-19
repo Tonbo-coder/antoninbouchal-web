@@ -246,89 +246,9 @@ export default function ExcelBezChaosuDetail() {
             </div>
           ))}
         </div>
-      </SectionWrapper>
-
-      {/* ── TERMÍN, CENA A DÉLKA ── */}
-      <SectionWrapper id="info" label="Termín, cena a délka" labelNum="04" bg="white">
-        <div className="reveal grid sm:grid-cols-3 gap-4">
-          <div className="flex flex-col gap-3 p-6 bg-[#f9fafb] border border-[var(--border)] rounded-2xl">
-            <div className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <svg
-                className="w-4 h-4 text-[var(--orange)]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 9v7.5"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className="font-bold text-[15px] text-[var(--text-dark)] mb-1">
-                Termín
-              </p>
-              <p className="text-[14px] text-[var(--text)] font-light leading-relaxed">
-                Volíme termín, který vám sedí. Domlouváme se individuálně.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3 p-6 bg-[#f9fafb] border border-[var(--border)] rounded-2xl">
-            <div className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <svg
-                className="w-4 h-4 text-[var(--orange)]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className="font-bold text-[15px] text-[var(--text-dark)] mb-1">
-                Cena
-              </p>
-              <p className="text-[14px] text-[var(--text)] font-light leading-relaxed">
-                Závisí na rozsahu a formě. Vždy se domluvíme individuálně.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3 p-6 bg-[#f9fafb] border border-[var(--border)] rounded-2xl">
-            <div className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <svg
-                className="w-4 h-4 text-[var(--orange)]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className="font-bold text-[15px] text-[var(--text-dark)] mb-1">
-                Délka
-              </p>
-              <p className="text-[14px] text-[var(--text)] font-light leading-relaxed">
-                Přizpůsobujeme vašim potřebám. Zpravidla 2–8 hodin.
-              </p>
-            </div>
-          </div>
-        </div>
+        <p className="reveal mt-6 text-[15px] font-light text-[var(--text)] leading-relaxed">
+          Termín, cena i délka školení se vždy domlouvají individuálně – přizpůsobíme vše přesně vašim potřebám.
+        </p>
       </SectionWrapper>
 
       {/* ── OBJEDNÁVKOVÝ FORMULÁŘ ── */}
@@ -337,7 +257,7 @@ export default function ExcelBezChaosuDetail() {
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-8 md:gap-10 lg:gap-20">
             <div className="reveal-left flex md:flex-col md:items-start items-center gap-2 md:pt-1">
               <span className="text-[11px] font-bold text-[var(--orange)] tracking-[0.2em] uppercase">
-                05
+                04
               </span>
               <h2 className="text-[22px] font-bold uppercase tracking-[0.08em] text-[var(--text-dark)]">
                 Mám zájem
