@@ -10,6 +10,7 @@ export default function ExcelBezChaosuDetail() {
       subtext="Praktické školení pro lidi, kteří Excel používají každý den, ale pořád ztrácejí čas na věcech, které by šly dělat rychleji."
       heroImage="/images/skoleni_MS_Excel_antonin_bouchal.webp"
       sectionImage="/images/skoleni_MS_Excel_antonin_bouchal.webp"
+      nameHighlight="chaosu"
       targetAudience={[
         { label: "Jednotlivci", sub: "kteří chtějí pracovat rychleji" },
         { label: "Týmy", sub: "s různou úrovní znalostí" },

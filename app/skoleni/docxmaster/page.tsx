@@ -55,6 +55,7 @@ export default function Page() {
           subtext="Kurz pro ty, kteří Word znají dobře, ale vědí, že existuje úroveň, kam se zatím nedostali. Hluboká práce s dokumenty, šablonami a automatizací."
           heroImage="/images/skoleni_MS_Word_antonin_bouchal.webp"
           sectionImage="/images/skoleni_MS_Word_antonin_bouchal.webp"
+          nameHighlight="kterou jinde neučí"
           targetAudience={[
             { label: "Pokročilí uživatelé Wordu", sub: "kteří chtějí jít dál" },
             { label: "Tvůrci šablon a dokumentů", sub: "pro celé firmy a týmy" },

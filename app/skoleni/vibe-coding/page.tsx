@@ -56,6 +56,7 @@ export default function Page() {
           heroImage="/images/skoleni_AI_antonin_bouchal.webp"
           sectionImage="/images/skoleni_AI_antonin_bouchal.webp"
           roundedImage
+          nameHighlight="AI (vibe coding)"
           targetAudience={[
             { label: "Podnikatelé", sub: "kteří chtějí vlastní web bez agentury" },
             { label: "Marketéři", sub: "kteří chtějí rozumět webovému vývoji" },

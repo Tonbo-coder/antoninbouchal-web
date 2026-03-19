@@ -15,6 +15,7 @@ export interface CourseDetailNewProps {
   heroImage: string;
   sectionImage: string;
   roundedImage?: boolean;
+  nameHighlight?: string;
 }
 
 const formOptions = ["Online", "Osobně", "Dle dohody"];
@@ -29,6 +30,7 @@ export default function CourseDetailNew({
   heroImage,
   sectionImage,
   roundedImage = false,
+  nameHighlight,
 }: CourseDetailNewProps) {
   const [sent, setSent] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
@@ -110,7 +112,13 @@ export default function CourseDetailNew({
               className="hero-animate font-black text-[#000] leading-[1.1] tracking-[-2px] mb-5"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)" }}
             >
-              {name}
+              {nameHighlight ? (
+                <>
+                  {name.split(nameHighlight)[0]}
+                  <span style={{ color: "#ec430f" }}>{nameHighlight}</span>
+                  {name.split(nameHighlight)[1]}
+                </>
+              ) : name}
             </h1>
             <p className="hero-animate text-[19px] font-semibold text-[var(--text-dark)] mb-3">
               {benefitSentence}

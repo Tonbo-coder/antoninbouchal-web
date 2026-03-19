@@ -56,6 +56,7 @@ export default function Page() {
           heroImage="/images/skoleni_AI_antonin_bouchal.webp"
           sectionImage="/images/skoleni_AI_antonin_bouchal.webp"
           roundedImage
+          nameHighlight="hodiny práce"
           targetAudience={[
             { label: "Manažeři a podnikatelé", sub: "kteří chtějí pracovat efektivněji" },
             { label: "Marketéři a copywriteři", sub: "kteří chtějí AI jako pomocníka" },

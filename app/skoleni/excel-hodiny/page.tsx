@@ -55,6 +55,7 @@ export default function Page() {
           subtext="Pro ty, kdo Excel znají, ale tuší, že by to šlo dělat rychleji. Zaměřujeme se na věci, které skutečně ušetří čas – ne na teorii."
           heroImage="/images/skoleni_MS_Excel_antonin_bouchal.webp"
           sectionImage="/images/skoleni_MS_Excel_antonin_bouchal.webp"
+          nameHighlight="šetří hodiny týdně"
           targetAudience={[
             { label: "Pokročilejší uživatelé", sub: "kteří chtějí víc z Excelu" },
             { label: "Analytici a accountanti", sub: "pracující s daty každý den" },
