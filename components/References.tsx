@@ -120,9 +120,9 @@ export default function References() {
     <SectionWrapper id="reference" label="Pár referencí" labelNum="03" bg="white" noDivider>
       <div className="reveal">
 
-        {/* Quote block */}
+        {/* Quote block – min-height stabilises layout across short/long quotes */}
         <div
-          className="relative mb-8 transition-all duration-220"
+          className="relative mb-8 transition-all duration-220 min-h-[9rem]"
           style={{ opacity: fading ? 0 : 1, transform: fading ? "translateY(6px)" : "none" }}
         >
           <span
@@ -131,7 +131,7 @@ export default function References() {
           >
             &ldquo;
           </span>
-          <blockquote className="text-[18px] font-normal leading-[1.85] text-[var(--text)] pt-6 max-w-2xl relative z-10">
+          <blockquote className="text-[18px] font-normal leading-[1.85] text-[var(--text)] pt-6 max-w-2xl relative z-10 line-clamp-3">
             &ldquo;{r.text}&rdquo;
           </blockquote>
         </div>
