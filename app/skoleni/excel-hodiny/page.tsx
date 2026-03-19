@@ -3,9 +3,72 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CourseDetail from "@/components/CourseDetail";
 
+const jsonLdCourse = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Excel, který vám šetří hodiny týdně",
+  description: "Pokročilé školení Microsoft Excel zaměřené na funkce, automatizaci a efektivní práci.",
+  provider: {
+    "@type": "Person",
+    name: "Antonín Bouchal",
+    url: "https://www.antoninbouchal.cz/",
+  },
+};
+
+const jsonLdWebPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Excel, který vám šetří hodiny týdně",
+  url: "https://www.antoninbouchal.cz/skoleni/excel-hodiny",
+  description: "Pokročilé školení Excelu zaměřené na funkce, automatizaci a úsporu času.",
+  inLanguage: "cs-CZ",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://www.antoninbouchal.cz/images/antonin-bouchal-skoleni.webp",
+  },
+};
+
 export const metadata: Metadata = {
-  title: "Excel, který vám šetří hodiny týdně | Školení – Antonín Bouchal",
-  description: "Funkce, automatizace a postupy, které reálně zrychlují práci v Excelu. Pro pokročilejší uživatele.",
+  title: "Excel, který vám šetří hodiny týdně | Školení Microsoft Excel pro pokročilé",
+  description:
+    "Posunete Excel na další úroveň. Naučíte se pokročilé funkce, automatizaci a postupy, které vám ušetří hodiny práce každý týden.",
+  keywords: [
+    "excel pokročilý",
+    "excel automatizace",
+    "pokročilé funkce excel",
+    "excel efektivita",
+    "školení excel",
+    "Antonín Bouchal",
+  ],
+  authors: [{ name: "Antonín Bouchal" }],
+  alternates: {
+    canonical: "https://www.antoninbouchal.cz/skoleni/excel-hodiny",
+  },
+  openGraph: {
+    title: "Excel, který vám šetří hodiny týdně | Školení Microsoft Excel pro pokročilé",
+    description: "Pokročilé školení Excelu zaměřené na funkce, automatizaci a úsporu času v praxi.",
+    type: "website",
+    url: "https://www.antoninbouchal.cz/skoleni/excel-hodiny",
+    siteName: "Antonín Bouchal",
+    locale: "cs_CZ",
+    images: [
+      {
+        url: "/images/antonin-bouchal-skoleni.webp",
+        width: 1200,
+        height: 630,
+        alt: "Excel, který vám šetří hodiny týdně – Antonín Bouchal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Excel, který vám šetří hodiny týdně | Školení Microsoft Excel pro pokročilé",
+    description: "Pokročilé školení Excelu zaměřené na úsporu času a efektivitu.",
+    images: {
+      url: "/images/antonin-bouchal-skoleni.webp",
+      alt: "Excel, který vám šetří hodiny týdně – Antonín Bouchal",
+    },
+  },
 };
 
 export default function Page() {
@@ -13,6 +76,14 @@ export default function Page() {
     <>
       <Navigation />
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdCourse) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}
+        />
         <CourseDetail
           name="Excel, který vám šetří hodiny týdně"
           benefitSentence="Funkce, automatizace a postupy, které reálně zrychlují práci."

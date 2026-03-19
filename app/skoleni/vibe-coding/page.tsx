@@ -3,9 +3,72 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CourseDetail from "@/components/CourseDetail";
 
+const jsonLdCourse = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Tvoříme weby pomocí AI (vibe coding)",
+  description: "Kurz zaměřený na moderní tvorbu webů s využitím AI – od návrhu po kód.",
+  provider: {
+    "@type": "Person",
+    name: "Antonín Bouchal",
+    url: "https://www.antoninbouchal.cz/",
+  },
+};
+
+const jsonLdWebPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Tvoříme weby pomocí AI (vibe coding)",
+  url: "https://www.antoninbouchal.cz/skoleni/vibe-coding",
+  description: "Naučíte se tvořit weby pomocí AI. Od návrhu po kód – rychle, efektivně a bez zbytečné složitosti.",
+  inLanguage: "cs-CZ",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://www.antoninbouchal.cz/images/antonin-bouchal-skoleni.webp",
+  },
+};
+
 export const metadata: Metadata = {
-  title: "Tvoříme weby pomocí AI (vibe coding) | Školení – Antonín Bouchal",
-  description: "Ukážu vám, jak dnes vznikají weby rychleji než kdy dřív. Praktický kurz vibe codingu s AI.",
+  title: "Tvoříme weby pomocí AI (vibe coding) | Kurz tvorby webů s AI",
+  description:
+    "Naučíte se tvořit weby pomocí AI. Od návrhu po kód – rychle, efektivně a bez zbytečné složitosti.",
+  keywords: [
+    "tvorba webu ai",
+    "vibe coding",
+    "ai web development",
+    "tvorba webových stránek",
+    "ai školení",
+    "Antonín Bouchal",
+  ],
+  authors: [{ name: "Antonín Bouchal" }],
+  alternates: {
+    canonical: "https://www.antoninbouchal.cz/skoleni/vibe-coding",
+  },
+  openGraph: {
+    title: "Tvoříme weby pomocí AI (vibe coding) | Kurz tvorby webů s AI",
+    description: "Moderní způsob tvorby webů s využitím AI – od návrhu po kód.",
+    type: "website",
+    url: "https://www.antoninbouchal.cz/skoleni/vibe-coding",
+    siteName: "Antonín Bouchal",
+    locale: "cs_CZ",
+    images: [
+      {
+        url: "/images/antonin-bouchal-skoleni.webp",
+        width: 1200,
+        height: 630,
+        alt: "Tvoříme weby pomocí AI – Antonín Bouchal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tvoříme weby pomocí AI (vibe coding) | Kurz tvorby webů s AI",
+    description: "Moderní tvorba webů s využitím AI.",
+    images: {
+      url: "/images/antonin-bouchal-skoleni.webp",
+      alt: "Tvoříme weby pomocí AI – Antonín Bouchal",
+    },
+  },
 };
 
 export default function Page() {
@@ -13,6 +76,14 @@ export default function Page() {
     <>
       <Navigation />
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdCourse) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebPage) }}
+        />
         <CourseDetail
           name="Tvoříme weby pomocí AI (vibe coding)"
           benefitSentence="Ukážu vám, jak dnes vznikají weby rychleji než kdy dřív."
