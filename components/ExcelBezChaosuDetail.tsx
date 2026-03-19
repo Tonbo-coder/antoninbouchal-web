@@ -188,20 +188,19 @@ export default function ExcelBezChaosuDetail() {
       </SectionWrapper>
 
       {/* ── CO SE NAUČÍTE ── */}
-      <SectionWrapper id="co-se-naucite" label="Co se naučíte" labelNum="02" bg="white">
-        <div className="relative">
-          {/* Decorative Excel background – full section */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <Image
-              src="/images/excel_skoleni_AB.webp"
-              alt=""
-              fill
-              className="object-cover opacity-[0.18]"
-              sizes="100vw"
-            />
-          </div>
-
-          <div className="reveal relative z-10 grid sm:grid-cols-2 gap-3">
+      <div className="relative">
+        {/* Decorative Excel background – full section width */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <Image
+            src="/images/excel_skoleni_AB.webp"
+            alt=""
+            fill
+            className="object-cover opacity-[0.18]"
+            sizes="100vw"
+          />
+        </div>
+        <SectionWrapper id="co-se-naucite" label="Co se naučíte" labelNum="02" bg="white" className="!bg-transparent">
+          <div className="reveal grid sm:grid-cols-2 gap-3">
             {learnItems.map((item, i) => (
               <div
                 key={i}
@@ -216,8 +215,8 @@ export default function ExcelBezChaosuDetail() {
               </div>
             ))}
           </div>
-        </div>
-      </SectionWrapper>
+        </SectionWrapper>
+      </div>
 
       {/* ── PRO KOHO TO JE ── */}
       <SectionWrapper id="pro-koho" label="Pro koho to je" labelNum="03" bg="gray">
