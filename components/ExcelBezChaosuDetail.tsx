@@ -190,24 +190,15 @@ export default function ExcelBezChaosuDetail() {
       {/* ── CO SE NAUČÍTE ── */}
       <SectionWrapper id="co-se-naucite" label="Co se naučíte" labelNum="02" bg="white">
         <div className="relative">
-          {/* Decorative Excel illustration – desktop only, very subtle */}
+          {/* Decorative Excel background – desktop only */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden hidden sm:block">
-            <div className="absolute -top-6 -right-4 w-[220px] h-[220px] opacity-[0.055]">
+            <div className="absolute -bottom-6 -right-8 w-[420px] h-[280px] opacity-[0.09]">
               <Image
-                src="/images/skoleni_MS_Excel_antonin_bouchal.webp"
+                src="/images/excel_skoleni_AB.webp"
                 alt=""
                 fill
-                className="object-contain"
-                sizes="220px"
-              />
-            </div>
-            <div className="absolute bottom-8 right-20 w-[130px] h-[130px] opacity-[0.035] blur-[1.5px]">
-              <Image
-                src="/images/skoleni_MS_Excel_antonin_bouchal.webp"
-                alt=""
-                fill
-                className="object-contain"
-                sizes="130px"
+                className="object-contain object-right-bottom"
+                sizes="420px"
               />
             </div>
           </div>
