@@ -190,17 +190,15 @@ export default function ExcelBezChaosuDetail() {
       {/* ── CO SE NAUČÍTE ── */}
       <SectionWrapper id="co-se-naucite" label="Co se naučíte" labelNum="02" bg="white">
         <div className="relative">
-          {/* Decorative Excel background – desktop only */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden hidden sm:block">
-            <div className="absolute -bottom-6 -right-8 w-[420px] h-[280px] opacity-[0.09]">
-              <Image
-                src="/images/excel_skoleni_AB.webp"
-                alt=""
-                fill
-                className="object-contain object-right-bottom"
-                sizes="420px"
-              />
-            </div>
+          {/* Decorative Excel background – full section */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <Image
+              src="/images/excel_skoleni_AB.webp"
+              alt=""
+              fill
+              className="object-cover opacity-[0.18]"
+              sizes="100vw"
+            />
           </div>
 
           <div className="reveal relative z-10 grid sm:grid-cols-2 gap-3">
