@@ -193,7 +193,7 @@ export default function ExcelBezChaosuDetail() {
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-8 md:gap-10 lg:gap-20">
 
             {/* Left: label + tilted Excel icon */}
-            <div className="reveal-left flex md:flex-col md:items-start items-center gap-2 md:pt-1">
+            <div className="flex md:flex-col md:items-start items-center gap-2 md:pt-1">
               <span className="text-[11px] font-bold text-[var(--orange)] tracking-[0.2em] uppercase">02</span>
               <h2 className="text-[22px] font-bold uppercase tracking-[0.08em] text-[var(--text-dark)]">
                 Co se naučíte
@@ -212,7 +212,7 @@ export default function ExcelBezChaosuDetail() {
 
             {/* Right: content */}
             <div className="border-b border-[#bdbdbd] pb-14 md:pb-16">
-              <div className="reveal grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-3">
                 {learnItems.map((item, i) => (
                   <div
                     key={i}
