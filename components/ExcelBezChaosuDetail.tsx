@@ -188,35 +188,50 @@ export default function ExcelBezChaosuDetail() {
       </SectionWrapper>
 
       {/* ── CO SE NAUČÍTE ── */}
-      <div className="relative">
-        {/* Decorative Excel background – full section width */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <Image
-            src="/images/excel_skoleni_AB.webp"
-            alt=""
-            fill
-            className="object-cover opacity-[0.18]"
-            sizes="100vw"
-          />
-        </div>
-        <SectionWrapper id="co-se-naucite" label="Co se naučíte" labelNum="02" bg="white" className="!bg-transparent">
-          <div className="reveal grid sm:grid-cols-2 gap-3">
-            {learnItems.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-3 p-5 bg-[#f9fafb] border border-[var(--border)] rounded-xl"
-              >
-                <span className="text-[var(--orange)] font-black text-[13px] mt-0.5 flex-shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-[15px] font-medium text-[var(--text-dark)] leading-snug">
-                  {item}
-                </p>
+      <section id="co-se-naucite" className="pt-14 md:pt-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-8 md:gap-10 lg:gap-20">
+
+            {/* Left: label + tilted Excel icon */}
+            <div className="reveal-left flex md:flex-col md:items-start items-center gap-2 md:pt-1">
+              <span className="text-[11px] font-bold text-[var(--orange)] tracking-[0.2em] uppercase">02</span>
+              <h2 className="text-[22px] font-bold uppercase tracking-[0.08em] text-[var(--text-dark)]">
+                Co se naučíte
+              </h2>
+              <div className="hidden md:block mt-3 w-10 h-[3px] bg-[var(--orange)] rounded-full" />
+              <div className="hidden md:block mt-6 rotate-[-8deg]">
+                <Image
+                  src="/images/skoleni_MS_Excel_antonin_bouchal.webp"
+                  alt="Excel"
+                  width={100}
+                  height={100}
+                  className="object-contain opacity-80"
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Right: content */}
+            <div className="border-b border-[#bdbdbd] pb-14 md:pb-16">
+              <div className="reveal grid sm:grid-cols-2 gap-3">
+                {learnItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-5 bg-[#f9fafb] border border-[var(--border)] rounded-xl"
+                  >
+                    <span className="text-[var(--orange)] font-black text-[13px] mt-0.5 flex-shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-[15px] font-medium text-[var(--text-dark)] leading-snug">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-        </SectionWrapper>
-      </div>
+        </div>
+      </section>
 
       {/* ── PRO KOHO TO JE ── */}
       <SectionWrapper id="pro-koho" label="Pro koho to je" labelNum="03" bg="gray">
