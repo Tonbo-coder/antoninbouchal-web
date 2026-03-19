@@ -35,7 +35,7 @@ const jsonLdPerson = {
   "@type": "Person",
   name: "Antonín Bouchal",
   url: "https://www.antoninbouchal.cz/",
-  image: "https://www.antoninbouchal.cz/images/antonin-bouchal_web.png",
+  image: "https://www.antoninbouchal.cz/images/antonin-bouchal-bio.webp",
   jobTitle: "Podnikatel, lektor a tvůrce webů",
   description:
     "Antonín Bouchal pomáhá firmám i jednotlivcům pracovat efektivněji prostřednictvím školení Excelu, Wordu, AI a tvorby moderních webů.",
@@ -63,7 +63,7 @@ const jsonLdOrganization = {
   "@type": "Organization",
   name: "Antonín Bouchal",
   url: "https://www.antoninbouchal.cz/",
-  logo: "https://www.antoninbouchal.cz/images/antonin-bouchal_web.png",
+  logo: "https://www.antoninbouchal.cz/images/antonin-bouchal-bio.webp",
   sameAs: [
     "https://www.linkedin.com/in/antoninbouchal/",
     "https://www.instagram.com/antonin.bouchal/",

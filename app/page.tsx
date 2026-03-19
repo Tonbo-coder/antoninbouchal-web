@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "cs_CZ",
     images: [
       {
-        url: "/images/antonin-bouchal_web.png",
+        url: "/images/antonin-bouchal-bio.webp",
         width: 1200,
         height: 630,
         alt: "Antonín Bouchal – školení Excel, Word, AI a tvorba webů",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Pomáhám firmám i jednotlivcům pracovat efektivněji. Školení Excel, Word, AI a tvorba moderních webů na míru.",
     images: {
-      url: "/images/antonin-bouchal_web.png",
+      url: "/images/antonin-bouchal-bio.webp",
       alt: "Antonín Bouchal – školení Excel, Word, AI a tvorba webů",
     },
   },
