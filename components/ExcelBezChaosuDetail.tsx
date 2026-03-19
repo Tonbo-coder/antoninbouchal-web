@@ -27,6 +27,7 @@ export default function ExcelBezChaosuDetail() {
   const [sent, setSent] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLElement>(null);
+  const learnRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const els = heroRef.current?.querySelectorAll(".hero-animate");
@@ -55,6 +56,7 @@ export default function ExcelBezChaosuDetail() {
       { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
     );
     if (formRef.current) observer.observe(formRef.current);
+    if (learnRef.current) observer.observe(learnRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -188,12 +190,12 @@ export default function ExcelBezChaosuDetail() {
       </SectionWrapper>
 
       {/* ── CO SE NAUČÍTE ── */}
-      <section id="co-se-naucite" className="pt-14 md:pt-16 bg-white">
+      <section ref={learnRef} id="co-se-naucite" className="pt-14 md:pt-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] gap-8 md:gap-10 lg:gap-20">
 
             {/* Left: label + tilted Excel icon */}
-            <div className="flex md:flex-col md:items-start items-center gap-2 md:pt-1">
+            <div className="reveal-left flex md:flex-col md:items-start items-center gap-2 md:pt-1">
               <span className="text-[11px] font-bold text-[var(--orange)] tracking-[0.2em] uppercase">02</span>
               <h2 className="text-[22px] font-bold uppercase tracking-[0.08em] text-[var(--text-dark)]">
                 Co se naučíte
@@ -212,7 +214,7 @@ export default function ExcelBezChaosuDetail() {
 
             {/* Right: content */}
             <div className="border-b border-[#bdbdbd] pb-14 md:pb-16">
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="reveal grid sm:grid-cols-2 gap-3">
                 {learnItems.map((item, i) => (
                   <div
                     key={i}
