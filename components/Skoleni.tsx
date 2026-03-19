@@ -166,7 +166,9 @@ export default function Skoleni() {
                   />
                 </div>
                 <div className="relative z-10">
-                  <h3 className="text-[18px] font-black text-[var(--text-dark)] leading-tight mb-2">{c.title}</h3>
+                  <h3 className="text-[18px] font-black leading-tight mb-2">
+                    <Link href={c.href} className="text-[var(--text-dark)] hover:text-[var(--orange)] transition-colors duration-200">{c.title}</Link>
+                  </h3>
                   <p className="text-[15px] font-light text-[var(--text)] leading-relaxed">{c.desc}</p>
                 </div>
                 <Link href={c.href}
