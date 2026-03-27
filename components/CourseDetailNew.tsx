@@ -38,6 +38,11 @@ export default function CourseDetailNew({
   const heroRef = useRef<HTMLElement>(null);
   const learnRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLElement>(null);
+  const mountTime = useRef<number>(0);
+
+  useEffect(() => {
+    mountTime.current = Date.now();
+  }, []);
 
   useEffect(() => {
     const els = heroRef.current?.querySelectorAll(".hero-animate");
@@ -79,6 +84,7 @@ export default function CourseDetailNew({
     format: "Dle dohody",
     date: "",
     message: "",
+    _hp: "",
   });
 
   const set =
@@ -268,7 +274,7 @@ export default function CourseDetailNew({
                     const res = await fetch("/api/course", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ course: name, ...form }),
+                      body: JSON.stringify({ course: name, ...form, _t: mountTime.current }),
                     });
                     if (!res.ok) throw new Error();
                     setSent(true);
@@ -286,6 +292,11 @@ export default function CourseDetailNew({
                   </div>
 
                   <input type="hidden" name="course" value={name} />
+
+                  {/* Honeypot – skryté pro lidi, viditelné pro boty */}
+                  <div style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                    <input type="text" name="website" value={form._hp} onChange={(e) => setForm((s) => ({ ...s, _hp: e.target.value }))} tabIndex={-1} autoComplete="off" />
+                  </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>

@@ -15,7 +15,17 @@ function createTransport() {
 
 export async function POST(req: Request) {
   try {
-    const { name, email, phone, message } = await req.json();
+    const { name, email, phone, message, _hp, _t } = await req.json();
+
+    // Honeypot: bot vyplnil skryté pole
+    if (_hp) {
+      return NextResponse.json({ ok: true });
+    }
+
+    // Časová kontrola: odeslání do 3 sekund od načtení → bot
+    if (!_t || Date.now() - _t < 3000) {
+      return NextResponse.json({ ok: true });
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Chybí povinné pole." }, { status: 400 });

@@ -6,9 +6,14 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", _hp: "" });
   const ref = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLElement>(null);
+  const mountTime = useRef<number>(0);
+
+  useEffect(() => {
+    mountTime.current = Date.now();
+  }, []);
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll(".hero-animate");
@@ -128,7 +133,7 @@ export default function ContactPage() {
                   const res = await fetch("/api/contact", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(form),
+                    body: JSON.stringify({ ...form, _t: mountTime.current }),
                   });
                   if (!res.ok) throw new Error();
                   setSent(true);
@@ -138,6 +143,11 @@ export default function ContactPage() {
                   setSending(false);
                 }
               }} className="flex flex-col gap-6">
+
+                  {/* Honeypot – skryté pro lidi, viditelné pro boty */}
+                  <div style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                    <input type="text" name="website" value={form._hp} onChange={(e) => setForm((s) => ({ ...s, _hp: e.target.value }))} tabIndex={-1} autoComplete="off" />
+                  </div>
 
                   {/* Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-4">
